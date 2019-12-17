@@ -1,44 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 따릉이 지도
+느리고 복잡한 따릉이 공식 앱 대신 빠르고 간편하게 주변 따릉이를 확인할 수 있습니다.
 
-## Available Scripts
+## 설치 및 실행
 
-In the project directory, you can run:
+#### 설치방법
+```shell
+$ git clone https://github.com/ChaeWonKong/bike-seoul.git
+$ cd bike-seoul
+$ yarn
+```
 
-### `yarn start`
+#### 실행방법
+```shell
+$ yarn start
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**참고: 따릉이 API를 활용해야 하므로, API 부분은 직접 신청하여 발급받아야 합니다.**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 적용 기술
+- **TypeScript**: TypeScript를 적극 사용하여 타입 오류를 컴파일 과정에서 체크하고, 협업을 용이하게 합니다.
+- **TDD 및 Unit Test (Jest, Enzyme)**: 개발 단계에서부터 무결점 서비스를 만들기 위해 노력합니다.
+- **Redux-Saga**: Saga를 이용해 Redux와 비동기 요청을 함께 이용합니다.
+- **Next.js / SSR**: Next.js 기반으로 서버사이드 렌더링을 활용합니다.
+- **PWA**: 프로그레시브 웹 앱 형태로 제작하여 안드로이드에서는 쉽게 설치해 앱처럼 사용 가능합니다.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 컨벤션
+- **린트**: AirBnB 스타일의 린트를 적용합니다.
+- **커밋**: Angular Convention에 기반해 진행합니다.
