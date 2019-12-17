@@ -1,5 +1,5 @@
-# 따릉이 지도
-![typescript](https://img.shields.io/badge/language-TypeScript-blue) ![react](https://img.shields.io/badge/Stack-React-yellow ![redux-saga](https://img.shields.io/badge/Stack-Redux--Saga-brightgreen) ![next.js](https://img.shields.io/badge/Stack-Next.js-orange) ![pwa](https://img.shields.io/badge/Stack-PWA-red)
+# 🚴따릉이 지도🚵🏼‍
+![typescript](https://img.shields.io/badge/language-TypeScript-blue) ![react](https://img.shields.io/badge/Stack-React-yellow) ![redux-saga](https://img.shields.io/badge/Stack-Redux--Saga-brightgreen) ![next.js](https://img.shields.io/badge/Stack-Next.js-orange) ![pwa](https://img.shields.io/badge/Stack-PWA-red)
 
 
 )
