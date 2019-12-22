@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
+import { bikeApi } from "./api"
 
 const App: React.FC = () => {
+  useEffect(() => {
+    bikeApi.getAllBikes()
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
