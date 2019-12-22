@@ -1,8 +1,5 @@
-/* global kakao */
-
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
-import { bikeApi } from "./api"
+import { GlobalStyle } from "./global-styles"
 
 declare global {
   interface Window {
@@ -12,7 +9,6 @@ declare global {
 
 const App: React.FC = () => {
   useEffect(() => {
-    // bikeApi.getAllBikes()
 
     let container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
     let options = { //지도를 생성할 때 필요한 기본 옵션
@@ -25,9 +21,10 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <div className="App">
+    <>
+      <GlobalStyle />
       <div id="map" style={{ width: "100vw", height: "100vh" }} />
-    </div>
+    </>
   );
 }
 
