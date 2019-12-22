@@ -23,7 +23,6 @@ $ yarn start
 
 ## 적용 기술
 - **TypeScript**: TypeScript를 적극 사용하여 타입 오류를 컴파일 과정에서 체크하고, 협업을 용이하게 합니다.
-- **TDD 및 Unit Test (Jest, Enzyme)**: 개발 단계에서부터 무결점 서비스를 만들기 위해 노력합니다.
 - **Redux-Saga**: Saga를 이용해 Redux와 비동기 요청을 함께 이용합니다.
 - **Next.js / SSR**: Next.js 기반으로 서버사이드 렌더링을 활용합니다.
 - **PWA**: 프로그레시브 웹 앱 형태로 제작하여 안드로이드에서는 쉽게 설치해 앱처럼 사용 가능합니다.
