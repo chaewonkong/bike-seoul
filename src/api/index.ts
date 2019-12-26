@@ -1,18 +1,20 @@
 import axios from 'axios'
-import { IBikeRes } from '../shared-interfaces'
+import { IBike } from '../shared-interfaces'
 
-const URL = "https://www.bikeseoul.com/app/station/getStationRealtimeStatus.do?stationGrpSeq=ALL"
+const URL = `${process.env.REACT_APP_BIKE_API_URL}`
+
 // const URL = ""
+
 
 const api = axios.create({
     baseURL: URL,
-    timeout: 1000,
+    timeout: 5000,
 })
 
+
 export const bikeApi = {
-    getAllBikes: async (): Promise<IBikeRes> => {
-        const res: IBikeRes = await api.get("")
-        console.log(res)
-        return res
+    getAllBikes: async (): Promise<IBike[]> => {
+        const res = await api.get("/api/bikes")
+        return res.data
     }
 }
