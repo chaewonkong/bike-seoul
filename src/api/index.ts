@@ -1,9 +1,8 @@
 import axios from 'axios'
 import { IBike } from '../shared-interfaces'
+import { reqParams } from "../shared-interfaces"
 
 const URL = `${process.env.REACT_APP_BIKE_API_URL}`
-
-// const URL = ""
 
 
 const api = axios.create({
@@ -13,8 +12,8 @@ const api = axios.create({
 
 
 export const bikeApi = {
-    getAllBikes: async (): Promise<IBike[]> => {
-        const res = await api.get("/api/bikes")
+    getAllBikes: async ({ polySize, centerX, centerY }: reqParams): Promise<IBike[]> => {
+        const res = await api.get(`/api/bikes?centerX=${centerX}&centerY=${centerY}&polySize=${polySize}`)
         return res.data
     }
 }

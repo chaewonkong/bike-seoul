@@ -1,6 +1,12 @@
 // Shared interfaces
 
 
+export interface reqParams {
+    centerX: number;
+    centerY: number;
+    polySize: number;
+}
+
 export interface IBikeRes {
     realtimeList?: IBike[] | null;
     loginYn: string;

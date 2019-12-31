@@ -15,7 +15,12 @@ declare global {
 
 const App: React.FC = () => {
   const getBikes = async (): Promise<IBike[]> => {
-    const data = await bikeApi.getAllBikes()
+    // Temporal
+    const centerX = 127.07221989999998,
+      centerY = 37.5320925,
+      polySize = 1000
+
+    const data = await bikeApi.getAllBikes({ polySize, centerX, centerY })
     console.log(data)
     return data
 
