@@ -8,11 +8,9 @@ export default function useScore() {
   const bikes = useSelector((state: RootState) => state.bikeList);
   const dispatch = useDispatch();
 
-  const onGetPosition = useCallback(pos => dispatch(getPosition(pos)), [
-    dispatch
-  ]);
+  const onGetPosition = useCallback(() => dispatch(getPosition()), [dispatch]);
 
-  const onGetBikes = useCallback(bikes => dispatch(getBike(bikes)), [dispatch]);
+  const onGetBikes = useCallback(pos => dispatch(getBike(pos)), [dispatch]);
 
   return { position, bikes, onGetPosition, onGetBikes };
 }

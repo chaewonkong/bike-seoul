@@ -6,8 +6,8 @@ export interface IPoints {
 }
 
 export interface reqParams {
-  centerX: number;
-  centerY: number;
+  centerX: number | string;
+  centerY: number | string;
   polySize: number;
 }
 

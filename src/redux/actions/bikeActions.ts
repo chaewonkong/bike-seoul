@@ -1,12 +1,12 @@
-import { GET_BIKE, GET_POSITION } from "./constraints";
+import { GET_BIKE, GET_POSITION } from "./constants";
 import { IBike, IPoints } from "../../shared-interfaces";
 
-export const getBike = (payload: IBike[]) => {
-  return { type: GET_BIKE, payload: [...payload] };
+export const getBike = (points: IPoints) => {
+  return { type: GET_BIKE, payload: points };
 };
 
-export const getPosition = (payload: IPoints) => {
-  return { type: GET_POSITION, payload };
+export const getPosition = () => {
+  return { type: GET_POSITION, payload: { x: "", y: "" } };
 };
 
 export type BikeAction =

@@ -1,35 +1,23 @@
-import React, { useEffect } from 'react';
-import { GlobalStyle } from "./global-styles"
-import { bikeApi } from "./api"
-import { IBike } from "./shared-interfaces"
-
+import React, { useEffect } from "react";
+import { GlobalStyle } from "./global-styles";
+import { bikeApi } from "./api";
+import { IBike } from "./shared-interfaces";
+import usePosition from "./redux/hooks/usePosition";
 
 declare global {
-
   interface Window {
     kakao: any;
   }
 }
 
-
-
 const App: React.FC = () => {
-  const getBikes = async (): Promise<IBike[]> => {
-    // Temporal
-    const centerX = 127.07221989999998,
-      centerY = 37.5320925,
-      polySize = 1000
-
-    const data = await bikeApi.getAllBikes({ polySize, centerX, centerY })
-    console.log(data)
-    return data
-
-  }
-
+  const { position, onGetPosition, onGetBikes, bikes } = usePosition();
+  console.log("bikes", bikes);
   useEffect(() => {
-    getBikes()
+    onGetPosition();
+    console.log("position", position);
 
-    let container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+    let container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
 
     let options = {
       //지도를 생성할 때 필요한 기본 옵션*
@@ -38,18 +26,20 @@ const App: React.FC = () => {
     };
 
     let map = new window.kakao.maps.Map(container, options); //지도 생성 및 객체 리턴*
-  }, [])
+  }, []);
 
-
+  useEffect(() => {
+    // console.log("found", position);
+    if (position) onGetBikes(position);
+  }, [position]);
 
   return (
     <>
       <GlobalStyle />
+      {/* <button onClick={() => onGetBikes(position)}>여기 클릭</button> */}
       <div id="map" style={{ width: "100vw", height: "100vh" }} />
     </>
   );
-
-}
-
+};
 
 export default App;
