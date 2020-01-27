@@ -14,5 +14,5 @@ export default function useScore() {
 
   const onGetBikes = useCallback(bikes => dispatch(getBike(bikes)), [dispatch]);
 
-  return { position, onGetPosition, onGetBikes };
+  return { position, bikes, onGetPosition, onGetBikes };
 }
