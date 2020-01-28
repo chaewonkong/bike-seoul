@@ -12,19 +12,27 @@ declare global {
 
 const App: React.FC = () => {
   const { position, onGetPosition, onGetBikes, bikes } = usePosition();
+  const [map, setMapToState] = useState();
 
-  console.log("bikes", bikes);
+  console.log("bikes", bikes, position);
   useEffect(() => {
     // Get current Position
     onGetPosition();
   }, []);
 
   useEffect(() => {
-    if (position) {
+    if (position.x && position.y) {
       onGetBikes(position); // Get Bikes
       setMap(position); // Render map
     }
-  }, [position]);
+  }, [position.x, position.y]);
+
+  useEffect(() => {
+    if (bikes && bikes.length) {
+      console.log(bikes);
+      bikes.map(bike => setMarker(bike.stationLongitude, bike.stationLatitude));
+    }
+  }, [bikes]);
 
   function setMap(position: IPoints) {
     const { x, y } = position;
@@ -37,6 +45,15 @@ const App: React.FC = () => {
     };
 
     let map = new window.kakao.maps.Map(container, options); //지도 생성 및 객체 리턴*
+    setMapToState(map);
+  }
+
+  function setMarker(longitude: string, latitude: string) {
+    let marker = new window.kakao.maps.Marker({
+      position: new window.kakao.maps.LatLng(latitude, longitude)
+    });
+
+    marker.setMap(map);
   }
 
   return (

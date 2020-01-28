@@ -3,15 +3,20 @@ import { BikeAction } from "../actions/bikeActions";
 import { IBike, IPoints } from "../../shared-interfaces";
 
 interface IState {
-  bikeList: IBike[] | IPoints;
+  bikeList: IBike[];
+  position: IPoints;
+}
+
+interface IRootState {
+  bikeList: IBike[];
   position: IPoints;
 }
 
 const INITIAL_STATE: IState = {
   bikeList: [],
   position: {
-    x: "",
-    y: ""
+    x: null,
+    y: null
   }
 };
 
@@ -20,12 +25,11 @@ const bikeReducer = (state = INITIAL_STATE, action: BikeAction) => {
     case constants.GET_BIKE_ASYNC:
       return { ...state, bikeList: action.payload };
     case constants.GET_POSITION_ASYNC:
-      let newPos: IPoints = action.payload;
-      return { ...state, position: newPos };
+      return { ...state, position: action.payload };
     default:
       return state;
   }
 };
 
 export default bikeReducer;
-export type RootState = ReturnType<typeof bikeReducer>;
+export type RootState = IRootState;

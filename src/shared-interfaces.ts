@@ -1,13 +1,13 @@
 // Shared interfaces
 
 export interface IPoints {
-  x: string;
-  y: string;
+  x: number | null;
+  y: number | null;
 }
 
-export interface reqParams {
-  centerX: number | string;
-  centerY: number | string;
+export interface IReqParams {
+  centerX: number | null;
+  centerY: number | null;
   polySize: number;
 }
 

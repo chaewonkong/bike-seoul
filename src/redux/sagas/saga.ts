@@ -3,11 +3,12 @@ import * as constants from "../actions/constants";
 import { bikeApi } from "../../api";
 import { IPoints } from "../../shared-interfaces";
 
-function* getBikesAsync(points: any) {
+function* getBikesAsync(points: IPoints) {
   const centerX = points.x;
   const centerY = points.y;
 
-  const res = yield bikeApi.getAllBikes({ polySize: 3000, centerX, centerY });
+  const res = yield bikeApi.getAllBikes({ polySize: 500, centerX, centerY });
+  console.log("data", res, centerX, centerY);
   yield put({ type: constants.GET_BIKE_ASYNC, payload: res.data });
 }
 
@@ -26,6 +27,7 @@ function* getPositionAsync() {
   yield put({ type: constants.GET_POSITION_ASYNC, payload: { x, y } });
 }
 
+// Watch
 function* watchGetPosition() {
   yield takeLatest(constants.GET_POSITION, getPositionAsync);
 }
@@ -37,6 +39,7 @@ function* watchGetBikes() {
   );
 }
 
+// RootSaga
 export default function* rootSaga() {
   yield all([watchGetPosition(), watchGetBikes()]);
 }

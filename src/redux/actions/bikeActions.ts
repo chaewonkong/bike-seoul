@@ -1,4 +1,9 @@
-import { GET_BIKE, GET_POSITION } from "./constants";
+import {
+  GET_BIKE,
+  GET_POSITION,
+  GET_BIKE_ASYNC,
+  GET_POSITION_ASYNC
+} from "./constants";
 import { IBike, IPoints } from "../../shared-interfaces";
 
 export const getBike = (points: IPoints) => {
@@ -9,6 +14,14 @@ export const getPosition = () => {
   return { type: GET_POSITION, payload: { x: "", y: "" } };
 };
 
-export type BikeAction =
-  | ReturnType<typeof getBike>
-  | ReturnType<typeof getPosition>;
+interface IGetBikeAction {
+  type: typeof GET_BIKE | typeof GET_BIKE_ASYNC;
+  payload: IBike[];
+}
+
+interface IGetPositionAction {
+  type: typeof GET_POSITION | typeof GET_POSITION_ASYNC;
+  payload: IPoints;
+}
+
+export type BikeAction = IGetBikeAction | IGetPositionAction;
