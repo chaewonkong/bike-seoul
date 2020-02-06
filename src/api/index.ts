@@ -6,7 +6,7 @@ const URL = `${process.env.REACT_APP_BIKE_API_URL}`;
 const LOCAL_URL = "http://localhost:3004";
 
 const api = axios.create({
-  baseURL: LOCAL_URL,
+  baseURL: URL,
   timeout: 5000
 });
 
