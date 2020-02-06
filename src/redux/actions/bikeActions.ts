@@ -4,14 +4,15 @@ import {
   GET_BIKE_ASYNC,
   GET_POSITION_ASYNC
 } from "./constants";
-import { IBike, IPoints } from "../../shared-interfaces";
+import { IBike, IPoints, IMapBounds } from "../../shared-interfaces";
 
-export const getBike = (points: IPoints) => {
-  return { type: GET_BIKE, payload: points };
+export const getBike = (points: IPoints, mapBounds: IMapBounds) => {
+  console.log("size got: ", mapBounds);
+  return { type: GET_BIKE, payload: { points, mapBounds } };
 };
 
-export const getPosition = () => {
-  return { type: GET_POSITION, payload: { x: "", y: "" } };
+export const getPosition = (x: string, y: string) => {
+  return { type: GET_POSITION, payload: { x, y } };
 };
 
 interface IGetBikeAction {

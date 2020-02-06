@@ -5,6 +5,13 @@ export interface IPoints {
   y: number | null;
 }
 
+export interface IMapBounds {
+  x1: number;
+  x2: number;
+  y1: number;
+  y2: number;
+}
+
 export interface IReqParams {
   centerX: number | null;
   centerY: number | null;
